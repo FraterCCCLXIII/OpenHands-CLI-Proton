@@ -48,6 +48,7 @@ Screen {
 #input_area {
     height: auto;
     max-height: 22;
+    dock: bottom;
     background: $background;
     padding: 0 1;
     margin: 0;
