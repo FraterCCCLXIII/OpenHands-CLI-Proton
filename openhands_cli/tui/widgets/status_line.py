@@ -41,6 +41,7 @@ class WorkingStatusLine(Static):
 
     def on_mount(self) -> None:
         """Initialize the working status line and start animation timer."""
+        self.display = self.running
         self._update_text()
         # Start animation timer for spinner (animates only when working)
         self._timer = self.set_interval(0.1, self._on_tick)
@@ -53,8 +54,9 @@ class WorkingStatusLine(Static):
 
     # ----- Reactive Watchers -----
 
-    def watch_running(self, _running: bool) -> None:
+    def watch_running(self, running: bool) -> None:
         """React to running state changes from ConversationContainer."""
+        self.display = running
         self._update_text()
 
     def watch_critic_settings(self, _settings: CriticSettings) -> None:

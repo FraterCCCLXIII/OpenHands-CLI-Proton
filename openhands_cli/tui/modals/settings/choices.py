@@ -55,4 +55,15 @@ def get_model_options(provider: str) -> list[tuple[str, str]]:
     return [(model, model) for model in unique_models]
 
 
+def get_all_model_options() -> list[tuple[str, str]]:
+    """Get flat list of all models as (provider/model, provider/model) for pickers."""
+    options: list[tuple[str, str]] = []
+    for provider in get_provider_options():
+        provider_name = provider[1]
+        for model, _ in get_model_options(provider_name):
+            full = f"{provider_name}/{model}"
+            options.append((full, full))
+    return options
+
+
 provider_options = get_provider_options()

@@ -24,6 +24,7 @@ COMMANDS = [
     DropdownItem(main="/condense - Condense conversation history"),
     DropdownItem(main="/skills - View loaded skills, hooks, and MCPs"),
     DropdownItem(main="/feedback - Send anonymous feedback about CLI"),
+    DropdownItem(main="/footer - Show or hide keybinding shortcuts in footer"),
     DropdownItem(main="/exit - Exit the application"),
 ]
 
@@ -79,6 +80,7 @@ def show_help(scroll_view: VerticalScroll) -> None:
   [{secondary}]/condense[/{secondary}] - Condense conversation history
   [{secondary}]/skills[/{secondary}] - View loaded skills, hooks, and MCPs
   [{secondary}]/feedback[/{secondary}] - Send anonymous feedback about CLI
+  [{secondary}]/footer[/{secondary}] - Show or hide keybinding shortcuts in footer
   [{secondary}]/exit[/{secondary}] - Exit the application
 
 [dim]Tips:[/dim]

@@ -117,10 +117,13 @@ def _parse_repo_from_remote(remote_url: str) -> str | None:
     return None
 
 
-def extract_repository_from_cwd() -> tuple[str | None, str | None]:
-    """Extract repository name (owner/repo) and current branch from CWD."""
+def extract_repository_from_dir(cwd: str | None = None) -> tuple[str | None, str | None]:
+    """Extract repository name (owner/repo) and current branch from directory.
 
-    cwd = os.getcwd()
+    Args:
+        cwd: Directory to run git from. Defaults to os.getcwd().
+    """
+    cwd = cwd or os.getcwd()
     remote = _run_git(["git", "-C", cwd, "remote", "get-url", "origin"])
     if not remote or ("github.com" not in remote and "gitlab.com" not in remote):
         return None, None
@@ -131,3 +134,8 @@ def extract_repository_from_cwd() -> tuple[str | None, str | None]:
 
     branch = _run_git(["git", "-C", cwd, "rev-parse", "--abbrev-ref", "HEAD"])
     return repo, branch
+
+
+def extract_repository_from_cwd() -> tuple[str | None, str | None]:
+    """Extract repository name (owner/repo) and current branch from CWD."""
+    return extract_repository_from_dir()

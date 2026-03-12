@@ -11,8 +11,8 @@ Widget Hierarchy (within ConversationContainer):
     │   └── InlineConfirmationPanel (when pending_action_count > 0)
     └── InputAreaContainer(#input_area)  ← docked to bottom
         ├── WorkingStatusLine
-        ├── InputField
-        └── InfoStatusLine
+        ├── Horizontal(#chat-input-row) (">" prefix + InputField)
+        └── ChatStatusFooter (repo, branch, model, location, metrics)
 
 ScrollableContent handles:
 - Clearing dynamic content when conversation_id changes

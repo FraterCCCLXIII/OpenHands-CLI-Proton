@@ -20,8 +20,8 @@ Widget Hierarchy::
                 │   └── ... conversation widgets (dynamically added)
                 └── InputAreaContainer(#input_area)
                     ├── WorkingStatusLine (data_bind)
-                    ├── InputField          ← Posts messages
-                    └── InfoStatusLine (data_bind)
+                    ├── Horizontal(#chat-input-row) (">" prefix + InputField)
+                    └── ChatStatusFooter (data_bind)
     └── Footer
 
 Message Flow:
@@ -108,6 +108,7 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
         "#scroll_view"
     )
     content_area: getters.query_one[Horizontal] = getters.query_one("#content_area")
+    footer: getters.query_one[Footer] = getters.query_one("#footer")
 
     @property
     def conversation_id(self) -> uuid.UUID | None:
@@ -231,8 +232,8 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
                         │   └── ... conversation content
                         └── InputAreaContainer(#input_area)
                             ├── WorkingStatusLine (data_bind)
-                            ├── InputField
-                            └── InfoStatusLine (data_bind)
+                            ├── Horizontal(#chat-input-row) (">" prefix + InputField)
+                            └── ChatStatusFooter (data_bind)
             └── Footer
 
         Message Flow:
@@ -252,8 +253,8 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
                 # This enables data_bind() (requires owner as active pump)
                 yield self.conversation_state
 
-        # Footer - shows available key bindings
-        yield Footer()
+        # Footer - shows available key bindings (hidden by default)
+        yield Footer(id="footer")
 
     def get_system_commands(self, screen: Screen) -> Iterable[SystemCommand]:
         yield from super().get_system_commands(screen)
@@ -271,10 +272,17 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
             lambda: self.plan_panel.toggle(),
         )
         yield SystemCommand("Settings", "Configure settings", self.action_open_settings)
+        yield SystemCommand(
+            "Footer",
+            "Show or hide keybinding shortcuts in footer",
+            self.action_toggle_footer,
+        )
 
     def on_mount(self) -> None:
         """Called when app starts."""
         from openhands_cli.stores import MissingEnvironmentVariablesError
+
+        # Footer is hidden via CSS by default (display: none), no action needed
 
         # Check if user has existing settings
         try:
@@ -617,6 +625,10 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
             self,
             current_conversation_id=self.conversation_id,
         )
+
+    def action_toggle_footer(self) -> None:
+        """Toggle the footer (keybinding shortcuts) visibility."""
+        self.footer.toggle_class("-visible")
 
     # =========================================================================
     # UI Event Handlers - Handle events from ConversationManager

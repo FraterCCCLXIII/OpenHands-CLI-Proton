@@ -9,8 +9,8 @@ Widget Hierarchy:
         ├── ScrollableContent(#scroll_view)  ← sibling, content rendered here
         └── InputAreaContainer(#input_area)  ← docked to bottom
             ├── WorkingStatusLine
-            ├── InputField  ← posts messages
-            └── InfoStatusLine
+            ├── Horizontal(#chat-input-row) (">" prefix + InputField)
+            └── ChatStatusFooter (repo, branch, model, metrics)
 
 Message Flow:
     - SlashCommandSubmitted → InputAreaContainer posts operation messages
@@ -90,6 +90,8 @@ class InputAreaContainer(Container):
                 self._command_skills()
             case "feedback":
                 self._command_feedback()
+            case "footer":
+                self._command_footer()
             case "exit":
                 self._command_exit()
             case _:
@@ -170,6 +172,11 @@ class InputAreaContainer(Container):
             message="Opening feedback form in your browser...",
             severity="information",
         )
+
+    def _command_footer(self) -> None:
+        """Handle the /footer command to toggle keybinding shortcuts visibility."""
+        app = cast("OpenHandsApp", self.app)
+        app.action_toggle_footer()
 
     def _command_exit(self) -> None:
         """Handle the /exit command with optional confirmation."""

@@ -18,10 +18,10 @@ Widget Hierarchy:
     ├── ScrollableContent(VerticalScroll, #scroll_view)
     │   ├── SplashContent(#splash_content)
     │   └── ... dynamically added conversation widgets
-    └── InputAreaContainer(#input_area)  ← docked to bottom
-        ├── WorkingStatusLine
-        ├── InputField
-        └── InfoStatusLine
+        └── InputAreaContainer(#input_area)  ← docked to bottom
+            ├── WorkingStatusLine
+            ├── Horizontal(#chat-input-row) (">" prefix + InputField)
+            └── ChatStatusFooter (repo, branch, model, location, metrics)
 """
 
 import threading
@@ -171,13 +171,14 @@ class ConversationContainer(Container):
             │   └── ... dynamically added conversation widgets
             └── InputAreaContainer(#input_area)  ← docked to bottom
         """
+        from textual.containers import Horizontal
+        from textual.widgets import Static
+
+        from openhands_cli.tui.widgets.chat_status_footer import ChatStatusFooter
         from openhands_cli.tui.widgets.input_area import InputAreaContainer
         from openhands_cli.tui.widgets.main_display import ScrollableContent
         from openhands_cli.tui.widgets.splash import SplashContent
-        from openhands_cli.tui.widgets.status_line import (
-            InfoStatusLine,
-            WorkingStatusLine,
-        )
+        from openhands_cli.tui.widgets.status_line import WorkingStatusLine
         from openhands_cli.tui.widgets.user_input.input_field import InputField
 
         # ScrollableContent holds splash and dynamically added widgets
@@ -190,7 +191,7 @@ class ConversationContainer(Container):
                 loaded_resources=ConversationContainer.loaded_resources,
             )
 
-        # Input area docked to bottom
+        # Input area docked to bottom: working status, chat input with prefix, status footer
         with InputAreaContainer(id="input_area").data_bind(
             loaded_resources=ConversationContainer.loaded_resources,
         ):
@@ -199,14 +200,15 @@ class ConversationContainer(Container):
                 elapsed_seconds=ConversationContainer.elapsed_seconds,
                 critic_settings=ConversationContainer.critic_settings,
             )
-            yield InputField(
-                placeholder="Type your message, @mention a file, or / for commands"
-            ).data_bind(
-                conversation_id=ConversationContainer.conversation_id,
-                pending_action_count=ConversationContainer.pending_action_count,
-            )
-            yield InfoStatusLine().data_bind(
-                running=ConversationContainer.running,
+            with Horizontal(id="chat-input-row"):
+                yield Static(">", id="chat-input-prefix")
+                yield InputField(
+                    placeholder="Type your message, @mention a file, or / for commands"
+                ).data_bind(
+                    conversation_id=ConversationContainer.conversation_id,
+                    pending_action_count=ConversationContainer.pending_action_count,
+                )
+            yield ChatStatusFooter().data_bind(
                 metrics=ConversationContainer.metrics,
             )
 

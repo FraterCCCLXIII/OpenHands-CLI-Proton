@@ -47,18 +47,112 @@ Screen {
 
 #input_area {
     height: auto;
-    max-height: 15;
+    max-height: 22;
     dock: bottom;
     background: $background;
-    padding: 1;
-    margin-bottom: 1;
-    align: left bottom;
+    padding: 0 1;
+    margin: 0;
+}
+
+
+/* Chat input row - port from prototype */
+#chat-input-row {
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent !important;
+    height: auto;
+}
+
+#chat-input-row:focus-within {
+    border: round #c8c8c8;
+    background: transparent !important;
+}
+
+#chat-input-row:hover {
+    border: round #a0a0a0;
+    background: transparent !important;
+}
+
+#chat-input-prefix {
+    width: auto;
+    color: #8a8a8a;
+    padding: 0 0 0 1;
+    height: auto;
+    min-height: 1;
+    content-align: left middle;
+}
+
+/* Input inside chat row - compact, borderless, transparent (row provides border) */
+#chat-input-row InputField {
+    width: 1fr;
+    min-height: 1;
+    height: auto;
+}
+
+#chat-input-row #single_line_input,
+#chat-input-row #multiline_input {
+    border: none !important;
+    background: transparent !important;
+    color: #f2f2f2;
+    padding: 0 1;
+    width: 1fr;
+    min-height: 1;
+    height: auto;
+}
+
+#chat-input-row #single_line_input:focus,
+#chat-input-row #multiline_input:focus {
+    border: none !important;
+    background: transparent !important;
+    color: white;
 }
 
 Footer {
     dock: bottom;
+    display: none;
     background: $surface;
     color: $foreground;
+}
+
+Footer.-visible {
+    display: block;
+}
+
+/* Dropdown overlay styles - port from prototype (model/cloud picker) */
+#model-picker OptionList,
+#cloud-picker OptionList {
+    background: transparent;
+    color: #f2f2f2;
+    border: round #8a8a8a;
+}
+
+#model-picker OptionList:hover,
+#cloud-picker OptionList:hover {
+    border: round #a0a0a0;
+}
+
+#model-picker OptionList:focus,
+#cloud-picker OptionList:focus {
+    border: round #b0b0b0;
+}
+
+#model-picker OptionList > .option-list--option-hover,
+#cloud-picker OptionList > .option-list--option-hover {
+    background: #181818;
+    color: #f2f2f2;
+}
+
+#model-picker OptionList > .option-list--option-highlighted,
+#cloud-picker OptionList > .option-list--option-highlighted {
+    background: #2a2a2a;
+    color: white;
+    text-style: bold;
+}
+
+#model-picker OptionList:focus > .option-list--option-highlighted,
+#cloud-picker OptionList:focus > .option-list--option-highlighted {
+    background: #3a3a3a;
+    color: white;
 }
 
 /* Panel-like styling for splash screen elements */

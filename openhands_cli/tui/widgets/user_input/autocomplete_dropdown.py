@@ -36,9 +36,8 @@ class AutoCompleteDropdown(Container):
         display: none;
         background: $surface;
         border: round $primary;
-        border-bottom: none;
         padding: 0 1;
-        margin: 0;
+        margin: 0 0 0 0;
 
         OptionList {
             width: 100%;

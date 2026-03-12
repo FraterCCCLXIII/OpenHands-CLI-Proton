@@ -167,13 +167,18 @@ class InputField(Container):
 
     def compose(self) -> ComposeResult:
         """Create the input widgets."""
-        yield self.autocomplete
         yield self.single_line_widget
         yield self.multiline_widget
 
     def on_mount(self) -> None:
-        """Focus the input when mounted."""
+        """Focus the input and hoist the autocomplete above the input row."""
         self.focus_input()
+        # Mount the autocomplete dropdown in InputAreaContainer (#input_area),
+        # before the #chat-input-row, so it appears above the bordered input box.
+        input_row = self.parent  # Horizontal #chat-input-row
+        input_area = input_row.parent if input_row else None  # InputAreaContainer
+        if input_area is not None:
+            input_area.mount(self.autocomplete, before=input_row)
 
     def watch_conversation_id(self, conversation_id: uuid.UUID | None) -> None:
         """React to conversation_id changes - disable input when None (switching)."""
