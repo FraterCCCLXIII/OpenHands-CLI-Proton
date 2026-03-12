@@ -658,6 +658,32 @@ class OpenHandsApp(CollapsibleNavigationMixin, App):
         )
 
 
+def _patch_driver_for_apple_terminal() -> None:
+    """Patch Textual's LinuxDriver to skip the in-band window resize DECRQM query
+    on Apple Terminal.
+
+    Apple Terminal does not understand the DECRQM ``$p`` query format and responds
+    by printing a literal ``p`` character at cursor position (0, 0) — the top-left
+    corner of the screen — right before the TUI renders its first frame.
+
+    Textual already guards its *sync-mode* query (``\\033[?2026$p``) against Apple
+    Terminal, but the *in-band window resize* query (``\\x1b[?2048$p``) has no such
+    guard as of Textual 8.x.  We apply the same workaround here until an upstream
+    fix is merged.
+    """
+    import os
+
+    if os.environ.get("TERM_PROGRAM", "") != "Apple_Terminal":
+        return
+
+    try:
+        from textual.drivers.linux_driver import LinuxDriver
+
+        LinuxDriver._query_in_band_window_resize = lambda self: None  # type: ignore[method-assign]
+    except Exception:
+        pass
+
+
 def main(
     resume_conversation_id: str | None = None,
     queued_inputs: list[str] | None = None,
@@ -705,6 +731,8 @@ def main(
         initial_confirmation_policy = NeverConfirm()
     elif llm_approve:
         initial_confirmation_policy = ConfirmRisky(threshold=SecurityRisk.HIGH)
+
+    _patch_driver_for_apple_terminal()
 
     app = OpenHandsApp(
         exit_confirmation=not exit_without_confirmation,

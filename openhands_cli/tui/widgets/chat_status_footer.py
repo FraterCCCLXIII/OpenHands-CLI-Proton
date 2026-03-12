@@ -111,8 +111,13 @@ class ChatStatusFooter(Horizontal):
     }
 
     #model-picker:hover {
-        background: transparent;
-        color: #f2f2f2;
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+
+    #model-picker:hover > SelectCurrent {
+        background: #1e1e1e;
+        background-tint: 0%;
     }
 
     #model-picker:focus {
@@ -132,7 +137,7 @@ class ChatStatusFooter(Horizontal):
         width: auto;
         color: #8a8a8a;
         margin-left: 1;
-        margin-right: 1;
+        margin-right: 0;
     }
 
     #cloud-icon:hover {
@@ -187,8 +192,13 @@ class ChatStatusFooter(Horizontal):
     }
 
     #cloud-picker:hover {
-        background: transparent;
-        color: #f2f2f2;
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+
+    #cloud-picker:hover > SelectCurrent {
+        background: #1e1e1e;
+        background-tint: 0%;
     }
 
     #cloud-picker:focus {
@@ -283,9 +293,8 @@ class ChatStatusFooter(Horizontal):
             compact=True,
             id="model-picker",
         )
-        yield Static("Ctrl+m     ⛁", id="model-shortcut")
+        yield Static("Ctrl+m", id="model-shortcut")
         yield Static("⛁", id="cloud-icon")
-        yield Static("Location:", id="cloud-label")
         yield CloudPickerSelect(
             ((" Local", "local"), (" Connect to Cloud", "connect_cloud")),
             value="local",

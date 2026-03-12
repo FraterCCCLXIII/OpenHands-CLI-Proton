@@ -35,7 +35,7 @@ class AutoCompleteDropdown(Container):
         max-height: 12;
         display: none;
         background: $surface;
-        border: round $primary;
+        border: round #8a8a8a;
         padding: 0 1;
         margin: 0 0 0 0;
 
@@ -48,6 +48,22 @@ class AutoCompleteDropdown(Container):
             padding: 0 1;
             margin: 0;
             background: $surface;
+        }
+
+        OptionList > .option-list--option-highlighted {
+            background: #2a2a2a;
+            color: white;
+            text-style: bold;
+        }
+
+        OptionList:focus > .option-list--option-highlighted {
+            background: #3a3a3a;
+            color: white;
+        }
+
+        OptionList > .option-list--option-hover {
+            background: #181818;
+            color: #f2f2f2;
         }
     }
     """
