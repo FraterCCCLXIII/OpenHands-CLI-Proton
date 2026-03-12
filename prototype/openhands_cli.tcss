@@ -1,0 +1,1432 @@
+App {
+    background: #000000;
+}
+
+Screen {
+    background: transparent;
+    color: #f2f2f2;
+    border: none;
+    scrollbar-background: #0b0b0b;
+    scrollbar-background-hover: #141414;
+    scrollbar-background-active: #1d1d1d;
+    scrollbar-color: #6f6f6f;
+    scrollbar-color-hover: #8a8a8a;
+    scrollbar-color-active: #b0b0b0;
+    scrollbar-corner-color: #0b0b0b;
+}
+
+VerticalScroll,
+OptionList,
+#threads,
+#chat-view,
+#changes-scroll,
+#slash-menu,
+#slash-submenu,
+#approval-options {
+    scrollbar-background: #0b0b0b;
+    scrollbar-background-hover: #141414;
+    scrollbar-background-active: #1d1d1d;
+    scrollbar-color: #6f6f6f;
+    scrollbar-color-hover: #8a8a8a;
+    scrollbar-color-active: #b0b0b0;
+    scrollbar-corner-color: #0b0b0b;
+}
+
+OptionList {
+    background: transparent;
+    color: #f2f2f2;
+    border: round #8a8a8a;
+}
+
+OptionList:hover {
+    border: round #a0a0a0;
+}
+
+OptionList:focus {
+    border: round #b0b0b0;
+}
+
+OptionList > .option-list--option-hover {
+    background: #181818;
+    color: #f2f2f2;
+}
+
+OptionList > .option-list--option-highlighted {
+    background: #2a2a2a;
+    color: white;
+    text-style: bold;
+}
+
+OptionList:focus > .option-list--option-highlighted {
+    background: #3a3a3a;
+    color: white;
+}
+
+#startup-shell {
+    width: 1fr;
+    height: 1fr;
+    align: center top;
+    layout: vertical;
+    padding: 2 4;
+    background: transparent;
+}
+
+#startup-logo {
+    width: auto;
+    color: #f2f2f2;
+    text-style: bold;
+    margin-bottom: 0;
+}
+
+#startup-version {
+    color: #f2f2f2;
+    margin-bottom: 1;
+}
+
+#startup-pill {
+    width: auto;
+    border: round #8a8a8a;
+    color: #f2f2f2;
+    background: transparent;
+    padding: 0 1;
+    margin-bottom: 1;
+}
+
+#onboarding-main-card {
+    width: 96;
+    max-width: 95%;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #d0d0d0;
+    padding: 1 2;
+    margin-bottom: 1;
+}
+
+#onboarding-choice-card {
+    display: none;
+    width: 40;
+    border: solid #8a8a8a;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 1 2;
+    margin-bottom: 1;
+}
+
+#onboarding-choice-card.-visible {
+    display: block;
+}
+
+#startup-call-to-action {
+    color: #d6d6d6;
+}
+
+#main-shell {
+    width: 1fr;
+    height: 1fr;
+    layout: vertical;
+    padding: 0;
+}
+
+/* Conversation tabs at top - black background, thin grey/white underlines */
+#conversation-tabs {
+    dock: top;
+    height: 3;
+    background: transparent;
+}
+
+#conversation-tabs Tab {
+    color: #a0a0a8;
+}
+
+#conversation-tabs Tab:hover {
+    color: #d0d0d8;
+}
+
+#conversation-tabs Tab.-active {
+    color: #e0e0e8;
+}
+
+#conversation-tabs Underline {
+    height: 1;
+}
+
+#conversation-tabs .underline--bar {
+    background: #6a6a70;
+    color: white;
+}
+
+#onboarding-banner {
+    display: none;
+    height: auto;
+    border-bottom: solid #555555;
+    color: #f2f2f2;
+    background: transparent;
+    padding: 0 1;
+}
+
+#onboarding-banner.-visible {
+    display: block;
+}
+
+#status-footer {
+    height: 1;
+    width: 1fr;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+    align: left middle;
+}
+
+#status-left {
+    width: auto;
+    color: #f2f2f2;
+}
+
+#model-icon {
+    width: auto;
+    color: #8a8a8a;
+    margin-right: 1;
+}
+
+#model-icon:hover {
+    color: #c0c0c0;
+}
+
+#model-label {
+    width: auto;
+    color: #f2f2f2;
+    margin-right: 0;
+}
+
+#model-label:hover {
+    color: #ffffff;
+}
+
+#model-shortcut {
+    width: auto;
+    color: #8a8a8a;
+    margin-left: 1;
+    margin-right: 0;
+}
+
+#model-shortcut:hover {
+    color: #c0c0c0;
+}
+
+#cloud-shortcut {
+    width: auto;
+    color: #8a8a8a;
+    margin-left: 1;
+}
+
+#cloud-shortcut:hover {
+    color: #c0c0c0;
+}
+
+#cloud-label {
+    width: auto;
+    color: #f2f2f2;
+    margin-right: 0;
+}
+
+#cloud-picker {
+    width: auto;
+    min-width: 8;
+    border: none;
+    background: transparent;
+    color: #f2f2f2;
+    margin-left: 0;
+    height: 1;
+}
+
+#cloud-picker > SelectCurrent {
+    width: auto;
+    min-width: 8;
+    height: 1;
+    border: none !important;
+    background: transparent;
+    background-tint: 0%;
+    padding: 0;
+}
+
+#cloud-picker > SelectCurrent Static#label {
+    width: auto;
+}
+
+#cloud-picker > SelectCurrent .arrow {
+    width: auto;
+    padding: 0 0 0 1;
+    color: #8a8a8a;
+}
+
+#cloud-picker > SelectOverlay {
+    width: auto;
+    min-width: 22;
+    padding: 0;
+    constrain: none inflect;
+}
+
+#cloud-picker:hover {
+    background: transparent;
+    color: #f2f2f2;
+}
+
+#cloud-picker:focus {
+    border: none;
+    background: transparent;
+    color: #f2f2f2;
+}
+
+#cloud-picker:focus > SelectCurrent,
+#cloud-picker.-expanded > SelectCurrent {
+    border: none !important;
+    background: transparent;
+    background-tint: 0%;
+}
+
+#model-picker {
+    width: auto;
+    min-width: 9;
+    border: none;
+    background: transparent;
+    color: #f2f2f2;
+    margin: 0;
+    height: 1;
+}
+
+#model-picker > SelectCurrent {
+    width: auto;
+    min-width: 9;
+    height: 1;
+    border: none !important;
+    background: transparent;
+    background-tint: 0%;
+    padding: 0;
+}
+
+#model-picker > SelectCurrent Static#label {
+    width: auto;
+}
+
+#model-picker > SelectCurrent .arrow {
+    width: auto;
+    padding: 0 0 0 1;
+    color: #8a8a8a;
+}
+
+#model-picker > SelectOverlay {
+    width: auto;
+    min-width: 24;
+    constrain: none inflect;
+}
+
+#model-picker:hover {
+    background: transparent;
+    color: #f2f2f2;
+}
+
+#model-picker:focus {
+    border: none;
+    background: transparent;
+    color: #f2f2f2;
+}
+
+#model-picker:focus > SelectCurrent {
+    border: none !important;
+    background: transparent;
+    background-tint: 0%;
+}
+
+#model-picker.-expanded > SelectCurrent {
+    border: none !important;
+    background: transparent;
+    background-tint: 0%;
+}
+
+#workspace {
+    height: 1fr;
+    width: 1fr;
+    padding: 0;
+}
+
+#workspace-columns {
+    width: 1fr;
+    height: 1fr;
+}
+
+#thread-panel {
+    width: 30;
+    min-width: 24;
+    max-width: 38;
+    border-right: solid #555555;
+    background: transparent;
+    padding: 0 2 0 0;
+}
+
+#chat-panel {
+    width: 1fr;
+    padding: 0 2;
+}
+
+#fly-view {
+    display: none;
+    width: 1fr;
+    height: 1fr;
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #d6d6d6;
+    padding: 0;
+}
+
+#fly-view.-visible {
+    display: block;
+}
+
+#board-view {
+    display: none;
+    width: 1fr;
+    height: 1fr;
+    padding: 1 0 0 0;
+}
+
+#board-view.-visible {
+    display: block;
+}
+
+#board-columns {
+    width: 1fr;
+    height: 1fr;
+}
+
+.board-column {
+    width: 1fr;
+    height: 1fr;
+    border: round #7a7a7a;
+    background: transparent;
+    margin-right: 1;
+}
+
+.board-column-title {
+    height: auto;
+    border-bottom: solid #3a3a3a;
+    color: #d9d9d9;
+    text-style: bold;
+    content-align: center middle;
+    padding: 0 1;
+}
+
+.board-list {
+    height: 1fr;
+    border: none;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0;
+}
+
+.board-list > .option-list--option {
+    border-bottom: solid #2a2a2a;
+    padding: 0 1;
+}
+
+.panel-title {
+    color: #c0c0c0;
+    margin: 0;
+    padding: 0 1;
+    text-style: bold;
+}
+
+#threads {
+    height: 1fr;
+    border: none;
+    background: transparent;
+}
+
+#threads > .option-list--option {
+    border-bottom: solid #2a2a2a;
+    padding: 1 1 1 0;
+}
+
+#threads > .option-list--option-hover,
+#approval-options > .option-list--option-hover,
+#slash-menu > .option-list--option-hover,
+#slash-submenu > .option-list--option-hover,
+#board-open-list > .option-list--option-hover,
+#board-review-list > .option-list--option-hover,
+#board-merged-list > .option-list--option-hover {
+    background: #181818;
+    color: #f2f2f2;
+}
+
+#threads > .option-list--option-highlighted,
+#approval-options > .option-list--option-highlighted,
+#slash-menu > .option-list--option-highlighted,
+#slash-submenu > .option-list--option-highlighted,
+#board-open-list > .option-list--option-highlighted,
+#board-review-list > .option-list--option-highlighted,
+#board-merged-list > .option-list--option-highlighted {
+    background: #2a2a2a;
+    color: white;
+    text-style: bold;
+}
+
+#threads:focus > .option-list--option-highlighted,
+#approval-options:focus > .option-list--option-highlighted,
+#slash-menu:focus > .option-list--option-highlighted,
+#slash-submenu:focus > .option-list--option-highlighted,
+#board-open-list:focus > .option-list--option-highlighted,
+#board-review-list:focus > .option-list--option-highlighted,
+#board-merged-list:focus > .option-list--option-highlighted {
+    background: #3a3a3a;
+    color: white;
+}
+
+#chat-view {
+    height: 1fr;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.chat-line {
+    margin: 0;
+    padding: 0;
+}
+
+.chat-line MarkdownBlock > .code_inline {
+    background: #0d2a4a;
+    color: #5aadff;
+}
+
+.assistant {
+    color: #f2f2f2;
+}
+
+.user {
+    color: #f2f2f2;
+}
+
+.system {
+    color: #f2f2f2;
+    padding: 0;
+    margin: 0 0 1 0;
+}
+
+#chat-input-row {
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent !important;
+    height: auto;
+}
+
+#status-right-spacer {
+    width: 1fr;
+}
+
+#chat-meta-stats {
+    color: #606060;
+    width: auto;
+}
+
+#chat-input-row:focus-within {
+    border: round #c8c8c8;
+    background: transparent !important;
+}
+
+#chat-input-row:hover {
+    border: round #a0a0a0;
+    background: transparent !important;
+}
+
+#chat-input-prefix {
+    width: auto;
+    color: #8a8a8a;
+    padding: 0 0 0 1;
+    height: 1;
+    content-align: left middle;
+}
+
+#chat-input {
+    border: none !important;
+    background: transparent !important;
+    color: #f2f2f2;
+    padding: 0 1;
+    width: 1fr;
+    height: 1;
+}
+
+#chat-input:focus {
+    border: none !important;
+    background: transparent !important;
+    color: white;
+}
+
+#tips-drawer {
+    display: none;
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+}
+
+#tips-drawer.-visible {
+    display: block;
+}
+
+#approval-title {
+    display: none;
+    margin: 0;
+    border: round #8a8a8a;
+    border-bottom: none;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+    text-style: bold;
+}
+
+#approval-title.-visible {
+    display: block;
+}
+
+#approval-options {
+    display: none;
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0;
+}
+
+#approval-options:hover,
+#slash-menu:hover,
+#slash-submenu:hover {
+    border: round #a0a0a0;
+}
+
+#approval-options.-visible {
+    display: block;
+}
+
+#slash-menu {
+    display: none;
+    margin: 0;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+    text-style: bold;
+}
+
+#slash-menu.-visible {
+    display: block;
+}
+
+#slash-submenu-title {
+    display: none;
+    margin: 0;
+    border: round #8a8a8a;
+    border-bottom: none;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+    text-style: bold;
+}
+
+#slash-submenu-title.-visible {
+    display: block;
+}
+
+#slash-submenu {
+    display: none;
+    margin: 0 0 1 0;
+    border: round #8a8a8a;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0;
+}
+
+#slash-submenu.-visible {
+    display: block;
+}
+
+Footer {
+    background: transparent;
+}
+
+/* Dark backdrop for all modal screens */
+ModalScreen {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Hint bar at bottom of modals (matches profile2 / pm-shortcuts) */
+.modal-hint-bar {
+    height: 1;
+    width: 1fr;
+    background: transparent;
+    color: #606060;
+    padding: 0 2;
+    margin: 0;
+    content-align: left middle;
+    border-top: solid #3a3a3a;
+}
+
+.modal-hint-bar.-no-line {
+    border-top: none;
+}
+
+/* Modal dialog shown via /modal command */
+ModalDialogScreen {
+    align: center middle;
+}
+
+#modal-dialog {
+    grid-size: 2;
+    grid-gutter: 1 2;
+    grid-rows: 1fr 3;
+    padding: 2 3;
+    width: 50;
+    height: 12;
+    border: round white;
+    background: #1a1a1a;
+}
+
+#modal-title {
+    column-span: 2;
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+    text-style: bold;
+}
+
+#modal-dialog Button {
+    width: 100%;
+    border: round white;
+    background: transparent !important;
+    color: white;
+}
+
+#modal-dialog Button:hover {
+    background: transparent !important;
+}
+
+#modal-dialog Button:focus {
+    background: transparent !important;
+}
+
+CloudConnectModalScreen {
+    align: center middle;
+}
+
+#cloud-connect-modal {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    border: round #8a8a8a;
+    padding: 1 2 0 2;
+}
+
+#cloud-connect-title {
+    width: auto;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0;
+    margin-bottom: 1;
+}
+
+#cloud-connect-body {
+    width: auto;
+    content-align: center middle;
+    margin-top: 1;
+}
+
+#cloud-connect-link {
+    width: auto;
+    border: round #8a8a8a;
+    content-align: center middle;
+    padding: 1 2;
+    margin: 1 0;
+    text-style: bold;
+}
+
+#cloud-connect-waiting {
+    width: auto;
+    content-align: center middle;
+    margin-bottom: 1;
+}
+
+#cloud-connect-cancel {
+    width: 16;
+    align-horizontal: center;
+    border: round #8a8a8a;
+    background: transparent !important;
+}
+
+#cloud-connect-cancel:hover,
+#cloud-connect-cancel:focus {
+    background: transparent !important;
+}
+
+CloudDisconnectConfirmScreen {
+    align: center middle;
+}
+
+#cloud-disconnect-modal {
+    width: 44;
+    height: auto;
+    border: round #8a8a8a;
+    padding: 1 2 0 2;
+}
+
+#cloud-disconnect-title {
+    width: 1fr;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0;
+}
+
+#cloud-disconnect-body {
+    width: 1fr;
+    content-align: center middle;
+    color: #a0a0a0;
+    padding: 0 0 1 0;
+}
+
+#cloud-disconnect-buttons {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+#cloud-disconnect-confirm {
+    width: 16;
+    border: round #c04040;
+    background: transparent !important;
+    color: #e06060;
+    margin-right: 1;
+}
+
+#cloud-disconnect-confirm:hover,
+#cloud-disconnect-confirm:focus {
+    background: #2a1010 !important;
+    color: #ff8080;
+}
+
+#cloud-disconnect-cancel {
+    width: 12;
+    border: round #8a8a8a;
+    background: transparent !important;
+    color: #f2f2f2;
+}
+
+#cloud-disconnect-cancel:hover,
+#cloud-disconnect-cancel:focus {
+    background: #1a1a1a !important;
+}
+
+/* New conversation location modal */
+NewConversationLocationModal {
+    align: center middle;
+}
+
+#new-conv-location-modal {
+    width: 48;
+    height: auto;
+    border: round #8a8a8a;
+    padding: 1 2 0 2;
+}
+
+#new-conv-location-title {
+    width: 1fr;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0;
+}
+
+#new-conv-location-subtitle {
+    width: 1fr;
+    content-align: center middle;
+    color: #a0a0a0;
+    padding: 0 0 1 0;
+}
+
+#new-conv-location-buttons {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+#new-conv-location-local {
+    width: 14;
+    border: round #8a8a8a;
+    background: transparent !important;
+    color: #f2f2f2;
+    margin-right: 1;
+}
+
+#new-conv-location-local:hover,
+#new-conv-location-local:focus {
+    background: #1a1a1a !important;
+    border: round #c8c8c8;
+}
+
+#new-conv-location-cloud {
+    width: 14;
+    border: round #4a8fc4;
+    background: transparent !important;
+    color: #7ab8e8;
+}
+
+#new-conv-location-cloud:hover,
+#new-conv-location-cloud:focus {
+    background: #0e1e2e !important;
+    border: round #7ab8e8;
+    color: #a8d0f0;
+}
+
+#new-conv-location-cancel-row {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+    margin-bottom: 1;
+}
+
+#new-conv-location-cancel {
+    width: 12;
+    border: round #555555;
+    background: transparent !important;
+    color: #707070;
+}
+
+#new-conv-location-cancel:hover,
+#new-conv-location-cancel:focus {
+    background: #1a1a1a !important;
+    border: round #8a8a8a;
+    color: #a0a0a0;
+}
+
+#new-conv-location-modal .modal-hint-bar {
+    height: 2;
+    margin: 0 -2;
+    padding: 0 2;
+}
+
+/* LLM Profile modal */
+LLMProfileModalScreen {
+    align: center middle;
+}
+
+#profile-modal {
+    width: 58;
+    height: auto;
+    border: round #8a8a8a;
+    padding: 1 2 0 2;
+}
+
+#profile-modal-title {
+    width: 1fr;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0 0 0;
+}
+
+#profile-modal-subtitle {
+    width: 1fr;
+    content-align: center middle;
+    color: #a0a0a0;
+    padding: 0 0 1 0;
+}
+
+#profile-rows {
+    width: 1fr;
+    height: auto;
+    margin: 1 0;
+}
+
+.profile-row {
+    height: 3;
+    width: 1fr;
+    align: left middle;
+    margin-bottom: 1;
+}
+
+.profile-mode-label {
+    width: 8;
+    color: #f2f2f2;
+    height: 1;
+    margin-top: 1;
+}
+
+.profile-row Select {
+    width: 1fr;
+    border: none;
+    background: transparent;
+    height: 3;
+}
+
+.profile-row Select > SelectCurrent {
+    border: round #555555 !important;
+    background: transparent;
+    background-tint: 0%;
+    padding: 0 1;
+    height: 3;
+}
+
+.profile-row Select:hover > SelectCurrent {
+    border: round #808080 !important;
+}
+
+.profile-row Select:focus > SelectCurrent,
+.profile-row Select.-expanded > SelectCurrent {
+    border: round #a0a0a0 !important;
+}
+
+.profile-row Select > SelectCurrent .arrow {
+    color: #8a8a8a;
+    padding: 0 0 0 1;
+}
+
+#profile-buttons {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+#profile-save {
+    width: 12;
+    border: round #5a8a5a;
+    background: transparent !important;
+    color: #80c080;
+    margin-right: 1;
+}
+
+#profile-save:hover,
+#profile-save:focus {
+    background: #0f2a0f !important;
+    color: #a0e0a0;
+}
+
+#profile-cancel {
+    width: 12;
+    border: round #8a8a8a;
+    background: transparent !important;
+    color: #f2f2f2;
+}
+
+#profile-cancel:hover,
+#profile-cancel:focus {
+    background: #1a1a1a !important;
+}
+
+/* Changes panel — replaces chat-view when /changes is active */
+#changes-panel {
+    display: none;
+    width: 1fr;
+    height: 1fr;
+    border: round #8a8a8a;
+    background: transparent;
+}
+
+#changes-panel.-visible {
+    display: block;
+}
+
+#changes-header {
+    height: auto;
+    width: 1fr;
+    background: transparent;
+    padding: 0 2;
+    align: left middle;
+    border-bottom: solid #3a3a3a;
+}
+
+#changes-title {
+    width: 1fr;
+    color: #c0c0c0;
+    text-style: bold;
+    content-align: left middle;
+    height: auto;
+    padding: 1 0;
+}
+
+#changes-close {
+    width: auto;
+    border: round #555555;
+    background: transparent !important;
+    color: #8a8a8a;
+    padding: 0 2;
+}
+
+#changes-close:hover {
+    background: transparent !important;
+    color: #f2f2f2;
+    border: round #a0a0a0;
+}
+
+#changes-close:focus {
+    background: transparent !important;
+    border: round #a0a0a0;
+}
+
+#changes-scroll {
+    width: 1fr;
+    height: 1fr;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+ChangedFileItem {
+    width: 1fr;
+    height: auto;
+    border-bottom: solid #2a2a2a;
+    background: transparent;
+    padding: 0;
+}
+
+ChangedFileItem:hover {
+    background: #141414;
+}
+
+ChangedFileItem:focus {
+    background: #1a1a1a;
+}
+
+.diff-header-line {
+    width: 1fr;
+    height: auto;
+    padding: 0 2;
+    background: transparent;
+}
+
+.diff-columns {
+    display: none;
+    width: 1fr;
+    height: auto;
+}
+
+.diff-columns.-visible {
+    display: block;
+}
+
+/* Panes are now Vertical containers — no padding, lines handle their own spacing */
+.diff-left-pane {
+    width: 1fr;
+    height: auto;
+    padding: 0;
+    border-right: solid #282828;
+    background: transparent;
+}
+
+.diff-right-pane {
+    width: 1fr;
+    height: auto;
+    padding: 0;
+    background: transparent;
+}
+
+/* One Static per diff row: height:1 fills full column width with the row background */
+.diff-line {
+    height: 1;
+    width: 1fr;
+    padding: 0 1;
+    background: transparent;
+}
+
+.diff-removed {
+    background: #321616;
+}
+
+.diff-added {
+    background: #163216;
+}
+
+.diff-hunk {
+    background: #182438;
+}
+
+.diff-filler {
+    background: transparent;
+}
+
+/* ── Profile Manager (/profile2) ─────────────────────────────────────── */
+
+#pm-panel {
+    display: none;
+    width: 1fr;
+    height: 1fr;
+    border: round #8a8a8a;
+    background: transparent;
+}
+
+#pm-panel.-visible {
+    display: block;
+}
+
+#pm-header {
+    height: auto;
+    width: 1fr;
+    background: transparent;
+    padding: 0 2;
+    align: left middle;
+    border-bottom: solid #3a3a3a;
+}
+
+#pm-title {
+    width: 1fr;
+    color: #c0c0c0;
+    text-style: bold;
+    content-align: left middle;
+    height: auto;
+    padding: 1 0;
+}
+
+#pm-active-label {
+    width: auto;
+    padding: 1 3 1 0;
+}
+
+#pm-default-label {
+    width: auto;
+    padding: 1 2 1 0;
+}
+
+#pm-close {
+    width: auto;
+    border: round #555555;
+    background: transparent !important;
+    color: #8a8a8a;
+    padding: 0 2;
+}
+
+#pm-close:hover {
+    background: transparent !important;
+    color: #f2f2f2;
+    border: round #a0a0a0;
+}
+
+#pm-close:focus {
+    background: transparent !important;
+    border: round #a0a0a0;
+}
+
+#pm-body {
+    height: 1fr;
+    width: 1fr;
+    border-bottom: solid #3a3a3a;
+}
+
+#pm-profile-list {
+    width: 2fr;
+    height: 1fr;
+    border: none;
+    border-right: solid #2a2a2a;
+    background: transparent;
+    padding: 0;
+}
+
+#pm-profile-list > .option-list--option {
+    padding: 0 2;
+    border-bottom: solid #1a1a1a;
+}
+
+#pm-profile-list > .option-list--option-highlighted {
+    background: #1e1e1e;
+    color: white;
+}
+
+#pm-profile-list:focus > .option-list--option-highlighted {
+    background: #252525;
+    color: white;
+}
+
+#pm-details-panel {
+    width: 1fr;
+    height: 1fr;
+    padding: 2 3;
+    background: transparent;
+}
+
+#pm-details-content {
+    width: 1fr;
+    height: auto;
+    color: #c0c0c0;
+}
+
+#pm-shortcuts {
+    height: 1;
+    width: 1fr;
+    background: transparent;
+    color: #606060;
+    padding: 0 2;
+    content-align: left middle;
+}
+
+/* ── Create / Edit Profile modal ───────────────────────────────────── */
+
+CreateProfileModal {
+    align: center middle;
+}
+
+#cp-modal {
+    width: 62;
+    height: auto;
+    border: round #555555;
+    padding: 1 2 0 2;
+    background: #111111;
+}
+
+#cp-title {
+    width: 1fr;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0 0 0;
+    color: #e0e0e0;
+}
+
+#cp-subtitle {
+    width: 1fr;
+    content-align: center middle;
+    color: #606060;
+    padding: 0 0 1 0;
+    text-style: italic;
+}
+
+#cp-form {
+    width: 1fr;
+    height: auto;
+    margin: 0 0 1 0;
+}
+
+.cp-row {
+    height: 3;
+    width: 1fr;
+    margin-bottom: 1;
+}
+
+.cp-label {
+    width: 12;
+    color: #a0a0a0;
+    height: 1;
+    margin-top: 1;
+}
+
+.cp-row Input {
+    width: 1fr;
+    border: round #555555;
+    background: transparent;
+    color: #f2f2f2;
+    padding: 0 1;
+}
+
+.cp-row Input:focus {
+    border: round #a0a0a0;
+}
+
+.cp-row Input:disabled {
+    color: #606060;
+    border: round #333333;
+}
+
+.cp-row Select {
+    width: 1fr;
+}
+
+#cp-buttons {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+#cp-save {
+    width: 12;
+    border: round #5a8a5a;
+    background: transparent !important;
+    color: #80c080;
+    margin-right: 1;
+}
+
+#cp-save:hover,
+#cp-save:focus {
+    background: #0f2a0f !important;
+    color: #a0e0a0;
+}
+
+#cp-cancel {
+    width: 12;
+    border: round #555555;
+    background: transparent !important;
+    color: #c0c0c0;
+}
+
+#cp-cancel:hover,
+#cp-cancel:focus {
+    background: #1a1a1a !important;
+}
+
+/* ── Delete Profile confirm modal ──────────────────────────────────── */
+
+DeleteProfileConfirmModal {
+    align: center middle;
+}
+
+#dp-modal {
+    width: 50;
+    height: auto;
+    border: round #555555;
+    padding: 1 2 0 2;
+    background: #111111;
+}
+
+#dp-title {
+    width: 1fr;
+    text-style: bold;
+    content-align: center middle;
+    padding: 1 0;
+    color: #e0e0e0;
+}
+
+#dp-body {
+    width: 1fr;
+    content-align: center middle;
+    color: #888888;
+    padding: 0 0 1 0;
+}
+
+#dp-buttons {
+    width: 1fr;
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+#dp-confirm {
+    width: 12;
+    border: round #c04040;
+    background: transparent !important;
+    color: #e06060;
+    margin-right: 1;
+}
+
+#dp-confirm:hover,
+#dp-confirm:focus {
+    background: #2a1010 !important;
+    color: #ff8080;
+}
+
+#dp-cancel {
+    width: 12;
+    border: round #555555;
+    background: transparent !important;
+    color: #c0c0c0;
+}
+
+#dp-cancel:hover,
+#dp-cancel:focus {
+    background: #1a1a1a !important;
+}

@@ -192,6 +192,11 @@ def main() -> None:
             if not success:
                 sys.exit(1)
 
+        elif args.command == "prototype":
+            from openhands_cli.prototype_launcher import launch_prototype
+
+            launch_prototype()
+
         else:
             compat_result = check_terminal_compatibility(console=console)
             if not compat_result.is_tty:

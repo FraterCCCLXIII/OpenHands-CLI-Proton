@@ -13,6 +13,7 @@ from openhands_cli.argparsers.util import (
     add_env_override_args,
     add_resume_args,
 )
+from openhands_cli.argparsers.prototype_parser import add_prototype_parser
 from openhands_cli.argparsers.view_parser import add_view_parser
 from openhands_cli.argparsers.web_parser import add_web_parser
 
@@ -131,5 +132,8 @@ def create_main_parser() -> argparse.ArgumentParser:
 
     # Add view subcommand
     add_view_parser(subparsers)
+
+    # Add prototype subcommand (UI experiments, dummy flows)
+    add_prototype_parser(subparsers)
 
     return parser
