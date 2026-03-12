@@ -11,6 +11,9 @@ Screen {
 #conversation_state {
     height: 1fr;
     width: 1fr;
+    layout: vertical;
+    background: $background;
+    color: $foreground;
 }
 
 #scroll_view {
